@@ -25,7 +25,10 @@ function App() {
       const contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
       const currentMessage = await contract.message();
 
-      setAccount(address);
+      let ens = await provider.lookupAddress(address);
+      if (!ens) ens = address; // fallback if no ENS
+      setAccount(ens);
+
       setContract(contract);
       setMessage(currentMessage);
       setWalletConnected(true);
@@ -74,7 +77,9 @@ function App() {
             placeholder="Write a new message..."
             style={{ width: '300px', marginRight: '10px' }}
           />
-          <button onClick={updateMessage}>Update Message</button>
+          <button onClick={updateMessage} className="update-message-btn">
+            Update
+          </button>
           <br />
           <br />
           <button onClick={disconnectWallet} className="disconnect-wallet-btn">

@@ -1,0 +1,41 @@
+# React build output
+/build
+/dist
+/.next
+/.vercel
+
+# Node modules
+/node_modules
+/.pnp
+.pnp.js
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# dotenv environment variables
+.env
+.env.*.local
+
+# Editor files
+.vscode/
+.idea/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# contract build artifacts
+artifacts/
+cache/
+typechain/
+coverage/
+build/
+
+# misc
+*.log
+*.lock
+*.tsbuildinfo
